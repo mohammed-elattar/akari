@@ -31,9 +31,10 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/adminpanel/users') }}">
+                {!! Form::open(['url'=>'/adminpanel/bu','method'=>'POST']) !!}
+                    <!-- <form class="form-horizontal" role="form" method="POST" action="{{ url('/adminpanel/users') }}"> -->
                         @include('admin/bu/form')
-                    </form>
+                {!! Form::close()!!}
                 </div>
             </div>
         </div>

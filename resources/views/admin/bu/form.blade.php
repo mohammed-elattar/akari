@@ -1,4 +1,3 @@
-                 {{ csrf_field() }}
 
                  <div class="form-group">                                            
                    <div class="col-md-2 pull-right">
@@ -75,6 +74,7 @@
         @endif
     </div>
 </div>
+
 <div class="clearfix"></div>
 
 
@@ -96,14 +96,48 @@
     <div class="clearfix"></div>
 
 
+<div class="form-group">                                            
+       <div class="col-md-2 pull-right">
+           نوع العقار
+       </div>
 
+       <div class="col-md-10">
+        {!!Form::select('bu_type',bu_type(),null,['class'=>'form-control'])!!}                        
+
+        @if ($errors->has('bu_type'))
+        <span class="help-block">
+            <strong>{{ $errors->first('bu_type') }}</strong>
+        </span>
+        @endif
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+
+<div class="form-group">                                            
+           <div class="col-md-2 pull-right">
+               الكلمات الدلاليه
+           </div>
+
+           <div class="col-md-10">
+            {!!Form::text('bu_meta',null,['class'=>'form-control'])!!}                        
+
+            @if ($errors->has('bu_meta'))
+            <span class="help-block">
+                <strong>{{ $errors->first('bu_meta') }}</strong>
+            </span>
+            @endif
+        </div>
+    </div>
+    <div class="clearfix"></div>
 
 
 
 <div class="form-group">
     <div class="col-md-12">
         <button type="submit" class="btn btn-warning">
-            <i class="fa fa-btn fa-registered"></i> تسجيل عضوية جديدة
+            <i class="fa fa-btn fa-registered"></i> اضافة عقار جديد
         </button>
     </div>
 </div>
