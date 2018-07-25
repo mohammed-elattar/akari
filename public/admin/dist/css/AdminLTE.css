@@ -1538,6 +1538,7 @@ a:focus {
  * --------------
  */
 .box {
+  padding-bottom: 5px;
   position: relative;
   border-radius: 3px;
   background: #ffffff;

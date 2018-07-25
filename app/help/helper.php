@@ -17,3 +17,10 @@ function bu_rent(){
     ];
     return $array;
 }
+
+function bu_status(){
+    $array = [
+        'مفعل','غير مفعل'
+    ];
+    return $array;
+}
