@@ -43,21 +43,3 @@
 <!-- /.content -->
 
 @endsection
-
-
-@section('footer')
-{{!! Html::script("admin/plugins/datatables/jquery.dataTables.min.js") !!}}
-{{!! Html::script("admin/plugins/datatables/dataTables.bootstrap.min.js") !!}}
-<script>
-    $(function () {
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": true,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false
-        });
-    });
-</script>
-@endsection
