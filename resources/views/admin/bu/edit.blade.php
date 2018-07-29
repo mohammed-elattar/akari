@@ -17,10 +17,10 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{url('/adminpanel')}}"><i class="fa fa-dashboard"></i>الرئيسية</a></li>
-        <li><a href="{{url('/adminpanel/bu')}}">التحكم في الأعضاء</a></li>
+        <li><a href="{{url('/adminpanel/bu')}}">التحكم في العقارات</a></li>
         <li class="active"><a href="{{url('/adminpanel/bu/'.$bu->id.'/edit')}}">
-                تعديل العضو 
-{{$user->name}}
+                تعديل العقار
+{{$bu->bu_name}}
             </a></li>
     </ol>
 </section>
@@ -45,37 +45,6 @@
                     
                 </div>
             </div>
-                <div class="box">
-                    <div class="box-header">
-                    {!!Form::open(['url'=>'adminpanel/users/changepassword','method'=>'post'])!!}
-                    <input type="hidden" value="{{$user->id}}" name="user_id">
-                    <div class="form-group">
-                    <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
-
-                        <div class="col-md-6 pull-right">
-                            <input id="password" type="password" placeholder="كلمة السر" class="form-control" name="password">
-
-                            @if ($errors->has('password'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                            @endif
-                        </div>
-                    </div>
-                    </div>
-                    <div class="form-group">
-                    <div class="col-md-6">
-                        <button type="submit" class="btn btn-warning">
-                            <i class="fa fa-btn fa-registered"></i> تغيير كلمة السر
-                        </button>
-                        @if($user->id !=1)
-                        <a href='/adminpanel/users/".$user->id."/delete' class='btn btn-info btn-circle'><i class='fa fa-edit'></i></a>
-                        @endif
-                    </div>
-                </div>
-                    {!!Form::close()!!}
-                </div>
-                    </div>
             </div>
         </div>
     </div>

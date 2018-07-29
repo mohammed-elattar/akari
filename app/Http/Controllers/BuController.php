@@ -44,6 +44,17 @@ class BuController extends Controller
         return redirect('/adminpanel/bu')->withFlashMessage('تمت اضافة العقار بنجاح');
     }
 
+    public function edit($id, Bu $bu_data) {
+        $bu = $bu_data->find($id);
+        return view('admin.bu.edit', compact('bu'));
+    }
+
+    public function update($id, Bu $bu, Request $request) {
+        $buupdated = $bu->find($id);
+        $buupdated->fill($request->all())->save();
+        return redirect('/adminpanel/bu')->withFlashMessage('تم تعديل العقار بنجاح');
+    }
+
     public function anydata(Bu $bu)
     {
         $bus = $bu->all();
