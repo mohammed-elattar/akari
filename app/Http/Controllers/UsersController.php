@@ -43,6 +43,8 @@ class UsersController extends Controller {
     public function destroy($id, User $user) {
         if ($id != 1) {
             $user->find($id)->delete();
+            // delete all buildings under this user
+            Bu::where('user_id',$id)->delete();
             return redirect('/adminpanel/users')->withFlashMessage('تم حذف العضو بنجاح');
         } else {
             return redirect('/adminpanel/users')->withFlashMessage('عفوا لا يمكن حذف هذا العضو');

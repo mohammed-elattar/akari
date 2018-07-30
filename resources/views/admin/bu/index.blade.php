@@ -79,22 +79,27 @@
 {!! Html::script("admin/plugins/datatables/dataTables.bootstrap.min.js") !!}
 <script type="text/javascript">
   $(function () {
-//    $('#data').DataTable({
-      
-      
-      
       var lastIdx = null;
 
-  $('#data thead th').each( function () {
-      if($(this).index()  < 4 ){
-          var classname = $(this).index() == 6  ?  'date' : 'dateslash';
-          var title = $(this).html();
-          $(this).html( '<input type="text" class="' + classname + '" data-value="'+ $(this).index() +'" placeholder=" البحث '+title+'" />' );
-      }else if($(this).index() == 4){
-          $(this).html( '<select><option value="0"> عضو </option><option value="1"> مدير الموقع </option></select>' );
-      }
-
-  } );
+      $('#data thead th').each( function () {
+          if($(this).index()  < 5 && $(this).index() != 3 ){
+              var classname = $(this).index() == 6  ?  'date' : 'dateslash';
+              var title = $(this).html();
+              $(this).html( '<input type="text" class="' + classname + '" data-value="'+ $(this).index() +'" placeholder=" البحث '+title+'" />' );
+          }else if($(this).index() == 3){
+              $(this).html( '<select>' +
+                      @foreach(bu_type() as $key=>$value)
+                          '<option value="{{$key}}">{{$value}}</option>' +
+                      @endforeach
+                          '</select>' );
+          }else if($(this).index() == 5){
+              $(this).html( '<select>' +
+                      @foreach(bu_status() as $key=>$value)
+                          '<option value="{{$key}}">{{$value}}</option>' +
+                      @endforeach
+                          '</select>' );
+          }
+      });
 
   var table = $('#data').DataTable({
       processing: true,

@@ -49,12 +49,16 @@ class BuController extends Controller
         return view('admin.bu.edit', compact('bu'));
     }
 
-    public function update($id, Bu $bu, Request $request) {
-        $buupdated = $bu->find($id);
+    public function update($id, BuRequest $request) {
+        $buupdated = Bu::find($id);
         $buupdated->fill($request->all())->save();
         return redirect('/adminpanel/bu')->withFlashMessage('تم تعديل العقار بنجاح');
     }
+    public function destroy($id) {
 
+            Bu::find($id)->delete();
+            return redirect('/adminpanel/bu')->withFlashMessage('تم حذف العقار بنجاح');
+    }
     public function anydata(Bu $bu)
     {
         $bus = $bu->all();

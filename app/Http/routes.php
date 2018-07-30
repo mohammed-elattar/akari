@@ -14,9 +14,8 @@
 Route::auth();
 /*Back end*/
 Route::group(['middleware'=>["web","admin"]],function(){
-    
-Route::get('/adminpanel/users/data',['as'=>'adminpanel/users/data','uses'=>'UsersController@anydata']);
 Route::get('/adminpanel/bu/data',['as'=>'adminpanel/bu/data','uses'=>'BuController@anydata']);
+Route::get('/adminpanel/users/data',['as'=>'adminpanel/users/data','uses'=>'UsersController@anydata']);
 
 Route::resource('/adminpanel/bu','BuController');
 Route::get('/adminpanel','AdminController@index'); 
