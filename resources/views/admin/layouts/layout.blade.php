@@ -347,7 +347,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    
+    @include('admin/layouts/message')
     @yield('content')
     
     
@@ -596,6 +596,13 @@
 <!--{!! Html::script('admin/dist/js/pages/dashboard.js') !!}-->
 <!-- AdminLTE for demo purposes -->
 {!! Html::script('admin/dist/js/demo.js') !!}
+<script>
+  $(function(){
+setTimeout(function(){
+   $("#mes").hide('blind',{},500)
+},5000);
+  });
+  </script>
 @yield('footer')
 </body>
 </html>
